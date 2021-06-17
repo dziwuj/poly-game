@@ -359,7 +359,6 @@ io3.on("connection", socket => {
         socket.leave('room-' + player.room)
         clearInterval(room.interval)
         rooms = rooms.filter(el => el.id != player.room)
-        data_base.insert(room, function (err, newDoc) { });
     })
 
     // socket.on("disconnect", () => {
