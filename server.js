@@ -188,7 +188,8 @@ io1.on("connection", socket => {
             p2: "",
             p2_nick: "",
             stage: -1,
-            started: false
+            started: false,
+            interval: ""
         }
         rooms.push(room)
         // console.log(rooms);
@@ -336,7 +337,7 @@ io3.on("connection", socket => {
         };
         // we don't want to wait a full second before the timer starts
         timer();
-        setInterval(timer, 1000);
+        room.interval = setInterval(timer, 1000);
     }
 
     socket.on("camera", (camera) => {
@@ -347,6 +348,7 @@ io3.on("connection", socket => {
         console.log("victory");
         io3.in("room-" + player.room).emit("victory")
         socket.leave('room-' + player.room)
+        clearInterval(room.interval)
         rooms = rooms.filter(el => el.id != player.room)
         data_base.insert(room, function (err, newDoc) { });
     })
@@ -355,6 +357,7 @@ io3.on("connection", socket => {
         console.log("defeat");
         io3.in("room-" + player.room).emit("defeat")
         socket.leave('room-' + player.room)
+        clearInterval(room.interval)
         rooms = rooms.filter(el => el.id != player.room)
         data_base.insert(room, function (err, newDoc) { });
     })
