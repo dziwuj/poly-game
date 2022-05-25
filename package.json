@@ -35,5 +35,13 @@
   "bugs": {
     "url": "https://github.com/dziwuj/poly-game/issues"
   },
-  "homepage": "https://github.com/dziwuj/poly-game#readme"
+  "homepage": "https://github.com/dziwuj/poly-game#readme",
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://localhost:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
+  }
 }
