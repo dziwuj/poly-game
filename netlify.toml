@@ -2,6 +2,6 @@
   # This will be run the site build
   command = "nodemon --experimental-modules server.js"
   # This is the directory is publishing to netlify's CDN
-  publish = "dist"
+  publish = "build"
   # functions build directory
   functions = "functions-build"
