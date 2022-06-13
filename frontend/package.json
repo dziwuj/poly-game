@@ -1,0 +1,31 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "css-loader": "^5.2.1",
+    "html-webpack-plugin": "^5.3.1",
+    "npm-run-all": "^4.1.5",
+    "socket.io": "^4.1.2",
+    "socket.io-client": "^4.1.2",
+    "style-loader": "^2.0.0",
+    "three": "^0.126.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "scripts": {
+    "build": "rmdir /s /q ..\\dist && webpack --mode development",
+    "watch": "webpack --progress --watch",
+    "webpack": "npm run build && watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
